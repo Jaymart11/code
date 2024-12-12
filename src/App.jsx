@@ -148,14 +148,24 @@ const App = () => {
                           )}
                         </div>
                         <div className="launch__details">
-                          <div>
-                            <img
-                              src={launch.links.mission_patch_small}
-                              alt="mission_patch"
-                            />
+                          <div
+                            className={
+                              !launch.links.mission_patch_small
+                                ? "no-content"
+                                : ""
+                            }
+                          >
+                            {launch.links.mission_patch_small ? (
+                              <img
+                                src={launch.links.mission_patch_small}
+                                alt="mission_patch"
+                              />
+                            ) : (
+                              "No image yet."
+                            )}
                           </div>
                           <div className={!launch.details ? "no-content" : ""}>
-                            {launch.details || "No details available."}
+                            {launch.details || "No details yet."}
                           </div>
                         </div>
                       </div>
